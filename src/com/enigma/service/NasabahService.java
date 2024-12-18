@@ -89,6 +89,18 @@ public class NasabahService implements CRUD{
         return daftarNasabahDenganSaldoTertinggi;
     }
 
+    public List<Nasabah> temukanBeberapaNasabahUsiaTertinggi(){
+
+        Integer umurTertinggi = getNasabahUmurTertinggi().getUmur();
+
+
+        List<Nasabah> daftarNasabahDenganUmurTertinggi = items.stream().filter(x-> x.getUmur().equals(umurTertinggi)).toList();
+
+        view.listNasabahUmurTertinggiSucess(daftarNasabahDenganUmurTertinggi);
+
+        return daftarNasabahDenganUmurTertinggi;
+    }
+
 
     public Nasabah getNasabahUmurTertinggi(){
         Nasabah nasabahTertinggi = null;

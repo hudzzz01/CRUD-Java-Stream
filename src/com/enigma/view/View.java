@@ -92,6 +92,27 @@ public class View {
         System.out.println("----------------------------------------");
         System.out.println("\n\n");
     }
+
+    public void listNasabahUmurTertinggiSucess(List<Nasabah> nasabah){
+        nasabah.stream().forEach(
+                x->{
+                    System.out.println("----------------");
+                    System.out.println("---------------------------");
+                    System.out.println("ID \t\t\t\t\t : " + x.getId());
+                    System.out.println("Name \t\t\t\t : " + x.getNama());
+                    System.out.println("Age \t\t\t\t : " + x.getUmur());
+                    System.out.println("Status Kredit \t\t : " + x.getStatusKredit());
+                    System.out.println("Lama waktu  \t\t : " + x.getLamaWaktuMenjadiNasabah());
+                    System.out.println("saldo \t\t\t\t : " + x.getSaldo());
+                    System.out.println("---------------------------");
+                    System.out.println("----------------");
+                }
+        );
+        System.out.println("----------------------------------------");
+        System.out.println("Berhasil mengambil data2 nasabah dengan umur tertinggi ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
     public void createFail(){
         System.out.println("----------------------------------------");
         System.out.println("Gagal membuat data baru (,,>﹏<,,)");
