@@ -4,6 +4,7 @@ import com.enigma.model.Nasabah;
 import com.enigma.view.View;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class NasabahService implements CRUD{
@@ -64,6 +65,10 @@ public class NasabahService implements CRUD{
 
         return  nasabahTertinggi;
     }
+
+
+
+
 
     public void jumlahNasabahBerdasarkanKategoriSaldo(){
         List<Nasabah> terendah = myFilterSaldoKurangDari(1000000.0);
@@ -229,6 +234,33 @@ public class NasabahService implements CRUD{
 
 
     }
+
+
+    public List<Nasabah> getNasabahTertinggiLimit(Integer limit){
+        Nasabah nasabahDenganSaldoTertinggi = getNasabahSaldoTertinggi();
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setSaldo(nasabahDenganSaldoTertinggi.getSaldo());
+
+        ArrayList<Double> seluruhSaldo = null;
+
+        List<Nasabah> nasabahSaldoTertinggi= items.stream()
+                        .sorted(Comparator
+                        .comparing(Nasabah::getSaldo).reversed())
+                        .limit(limit)
+                        .toList();
+
+
+//        System.out.println(nasabahSaldoTertinggi);
+
+//        System.out.println(passNasabah);
+        view.listNasabahSaldoTertinggiSucess(nasabahSaldoTertinggi);
+        return nasabahSaldoTertinggi;
+
+
+
+
+    }
+
 
     public Nasabah getNasabahUmurTerendah(){
         Nasabah nasabahDenganUmurTertinggi = getNasabahUmurTertinggi();
