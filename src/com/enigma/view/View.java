@@ -27,6 +27,22 @@ public class View {
         System.out.println("----------------------------------------");
         System.out.println("\n\n");
     }
+
+    public void umurNasabahTertinggiDanTerendahSucess(Nasabah nasabahTertinggi, Nasabah nasabahTerendah){
+        System.out.println("----------------------------------------");
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("Umur Paling tua : " + nasabahTertinggi.getUmur());
+        System.out.println("nama  \t : " + nasabahTertinggi.getNama());
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("umur Paling muda : " + nasabahTerendah.getUmur());
+        System.out.println("nama  \t : " + nasabahTerendah.getNama());
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("----------------------------------------");
+        System.out.println("Berhasil mendapatkan umur Paling tua dan Paling muda ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
+    
     public void createSucess(Nasabah nasabah){
         readOneSuccess(nasabah);
         System.out.println("----------------------------------------");

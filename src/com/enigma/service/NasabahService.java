@@ -65,6 +65,32 @@ public class NasabahService implements CRUD{
         return  nasabahTertinggi;
     }
 
+
+    public Nasabah getNasabahUmurTertinggi(){
+        Nasabah nasabahTertinggi = null;
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setUmur(0);
+
+        List<Nasabah> passNasabah = items.stream().filter(x -> {
+            if (x.getUmur() > dumpNasabah.getUmur()) {
+                dumpNasabah.setUmur(x.getUmur());
+                return true;
+            }
+            return false;
+        }).toList();
+
+        if(!passNasabah.isEmpty()){
+
+            nasabahTertinggi = passNasabah.get(passNasabah.size()-1);
+        }
+
+//        System.out.println(nasabahTertinggi);
+
+
+
+        return  nasabahTertinggi;
+    }
+
     public Nasabah getNasabahSaldoTerendah(){
         Nasabah nasabahDenganSaldoTertinggi = getNasabahSaldoTertinggi();
         Nasabah dumpNasabah = new Nasabah();
@@ -92,10 +118,44 @@ public class NasabahService implements CRUD{
 
     }
 
+    public Nasabah getNasabahUmurTerendah(){
+        Nasabah nasabahDenganUmurTertinggi = getNasabahUmurTertinggi();
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setUmur(nasabahDenganUmurTertinggi.getUmur());
+        Nasabah nasabahTerendah = null;
+
+        List<Nasabah> passNasabah = items.stream().filter(x -> {
+            if (x.getUmur() < dumpNasabah.getUmur()) {
+                dumpNasabah.setUmur(x.getUmur());
+                return true;
+            }
+            return false;
+        }).toList();
+
+        if(!passNasabah.isEmpty()){
+
+            nasabahTerendah = passNasabah.get(passNasabah.size()-1);
+        }
+
+//        System.out.println(nasabahTerendah);
+        return nasabahTerendah;
+
+
+
+
+    }
+
+
     public void getNasabahSaldoTertinggiDanTerendah(){
         Nasabah tertinggi = getNasabahSaldoTertinggi();
         Nasabah terendah = getNasabahSaldoTerendah();
         view.saldoNasabahTertinggiDanTerendahSucess(tertinggi,terendah);
+    }
+
+    public void getNasabahUmurTertinggiDanTerendah(){
+        Nasabah tertinggi = getNasabahUmurTertinggi();
+        Nasabah terendah = getNasabahUmurTerendah();
+        view.umurNasabahTertinggiDanTerendahSucess(tertinggi,terendah);
     }
 
     public double rataRataSaldoNasabah(){
