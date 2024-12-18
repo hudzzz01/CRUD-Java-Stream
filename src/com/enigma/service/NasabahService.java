@@ -39,6 +39,65 @@ public class NasabahService implements CRUD{
         return  index;
     }
 
+    public Nasabah getNasabahSaldoTertinggi(){
+        Nasabah nasabahTertinggi = null;
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setSaldo(0.0);
+
+        List<Nasabah> passNasabah = items.stream().filter(x -> {
+            if (x.getSaldo() > dumpNasabah.getSaldo()) {
+                dumpNasabah.setSaldo(x.getSaldo());
+                return true;
+            }
+            return false;
+        }).toList();
+
+        if(!passNasabah.isEmpty()){
+
+            nasabahTertinggi = passNasabah.get(passNasabah.size()-1);
+        }
+
+//        System.out.println(nasabahTertinggi);
+//        view.saldoNasabahTertinggiDanTerendahSucess(nasabahTertinggi.getSaldo(),0.0);
+
+
+
+        return  nasabahTertinggi;
+    }
+
+    public Nasabah getNasabahSaldoTerendah(){
+        Nasabah nasabahDenganSaldoTertinggi = getNasabahSaldoTertinggi();
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setSaldo(nasabahDenganSaldoTertinggi.getSaldo());
+        Nasabah nasabahTerendah = null;
+
+        List<Nasabah> passNasabah = items.stream().filter(x -> {
+            if (x.getSaldo() < dumpNasabah.getSaldo()) {
+                dumpNasabah.setSaldo(x.getSaldo());
+                return true;
+            }
+            return false;
+        }).toList();
+
+        if(!passNasabah.isEmpty()){
+
+            nasabahTerendah = passNasabah.get(passNasabah.size()-1);
+        }
+
+//        System.out.println(nasabahTerendah);
+        return nasabahTerendah;
+
+
+
+
+    }
+
+    public void getNasabahSaldoTertinggiDanTerendah(){
+        Nasabah tertinggi = getNasabahSaldoTertinggi();
+        Nasabah terendah = getNasabahSaldoTerendah();
+        view.saldoNasabahTertinggiDanTerendahSucess(tertinggi,terendah);
+    }
+
     public double rataRataSaldoNasabah(){
         Nasabah nasabahResult = new Nasabah();
 
@@ -58,6 +117,7 @@ public class NasabahService implements CRUD{
 
         return result ;
     };
+
 
     public double rataRataSaldoNasabahBerdasarkanStatusKredit(String statusKredit){
         Nasabah saldoNasabahResult = new Nasabah();

@@ -13,6 +13,20 @@ public class View {
         System.out.println("----------------------------------------");
         System.out.println("\n\n");
     }
+    public void saldoNasabahTertinggiDanTerendahSucess(Nasabah nasabahTertinggi, Nasabah nasabahTerendah){
+        System.out.println("----------------------------------------");
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("Saldo tertinggi : " + nasabahTertinggi.getSaldo());
+        System.out.println("pemilik  \t : " + nasabahTertinggi.getNama());
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("Saldo terendah : " + nasabahTerendah.getSaldo());
+        System.out.println("pemilik  \t : " + nasabahTerendah.getNama());
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("----------------------------------------");
+        System.out.println("Berhasil mendapatkan saldo tertinggi dan terendah ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
     public void createSucess(Nasabah nasabah){
         readOneSuccess(nasabah);
         System.out.println("----------------------------------------");
