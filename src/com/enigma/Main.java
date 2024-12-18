@@ -9,14 +9,14 @@ public class Main {
         NasabahService service = new NasabahService();
         service.create(new Nasabah(1,"hudzaifah",24,100000.00,"baik",5));
         service.create(new Nasabah(2,"miya",25,2000000.00,"baik",50));
-        service.create(new Nasabah(3,"balmon",30,5000000.00,"baik",12));
+        service.create(new Nasabah(3,"balmon",60,5000000.00,"baik",12));
         service.create(new Nasabah(4,"angela",14,20000000.00,"baik",23));
         service.create(new Nasabah(5,"hanabi",23,22000000.00,"buruk",45));
         service.create(new Nasabah(6,"hudzaifah",24,200000.00,"baik",5));
 //        service.create(new Nasabah(7,"roger",23,22000000.00,"buruk",45));
 //        service.create(new Nasabah(8,"Ling",30,22000000.00,"buruk",45));
 //        service.create(new Nasabah(9,"Nana",30,22000000.00,"buruk",45));
-        service.create(new Nasabah(10,"Beneta",30,22000000.00,"buruk",45));
+        service.create(new Nasabah(10,"Beneta",70,22000000.00,"buruk",45));
         service.create(new Nasabah(11,"Hilos",30,22000000.00,"buruk",45));
         service.create(new Nasabah(12,"Estes",30,22000000.00,"buruk",45));
 ////        service.read();
@@ -85,7 +85,8 @@ public class Main {
 //                    service.temukanBeberapaNasabahSaldoTertinggi();
                       service.getNasabahTertinggiLimit(5);
                 } else if (input.equals(16)) {
-                    service.temukanBeberapaNasabahUsiaTertinggi();
+//                    service.temukanBeberapaNasabahUsiaTertinggi();
+                    service.usiaDiatas50();
                 }
 
             }

@@ -155,7 +155,7 @@ public class View {
                 }
         );
         System.out.println("----------------------------------------");
-        System.out.println("Berhasil mengambil data2 nasabah dengan umur tertinggi ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("Berhasil mengambil data2 nasabah dengan umur tertinggi di atas 50 tahun ദ്ദി ( ᵔ ᗜ ᵔ )");
         System.out.println("----------------------------------------");
         System.out.println("\n\n");
     }

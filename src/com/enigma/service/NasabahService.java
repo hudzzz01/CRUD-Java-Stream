@@ -94,6 +94,14 @@ public class NasabahService implements CRUD{
         return daftarNasabahDenganSaldoTertinggi;
     }
 
+    public void usiaDiatas50(){
+        List<Nasabah> usiaDiatas50 = items.stream().filter(x -> {
+            return x.getUmur() > 50;
+        }).toList();
+
+        view.listNasabahUmurTertinggiSucess(usiaDiatas50);
+    }
+
     public List<Nasabah> temukanBeberapaNasabahUsiaTertinggi(){
 
         Integer umurTertinggi = getNasabahUmurTertinggi().getUmur();
@@ -288,6 +296,8 @@ public class NasabahService implements CRUD{
 
 
     }
+
+
 
     public void getSaldoTerendah(){
         Nasabah terendah = getNasabahSaldoTerendah();
