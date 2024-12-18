@@ -40,22 +40,46 @@ public class NasabahService implements CRUD{
     }
 
     public double rataRataSaldoNasabah(){
-
+        Nasabah nasabahResult = new Nasabah();
 
         long count = items.stream().count();
         Double nasabah = items.stream().reduce((x,y)->{
             Double xSaldo = x.getSaldo();
             Double ySaldo = y.getSaldo();
             Double result = xSaldo + ySaldo;
-            y.setSaldo(result);
-            return y;
+            nasabahResult.setSaldo(result);
+            return nasabahResult;
         }).get().getSaldo();
 
         double result = nasabah/count;
-        view.saldoRataRataSeluruhNasabahSucess(result);
+        view.saldoRataRataSeluruhNasabahSucess(result,"Saldo seluruh nasabah");
+
+//        System.out.println(items);
 
         return result ;
     };
+
+    public double rataRataSaldoNasabahBerdasarkanStatusKredit(String statusKredit){
+        Nasabah saldoNasabahResult = new Nasabah();
+        List<Nasabah> nasabahBerdasarkanStatusKreditTertentu = items.stream().filter(x->x.getStatusKredit().equals(statusKredit)).toList();
+//        System.out.println(nasabahBerdasarkanStatusKreditTertentu);
+
+        long count = nasabahBerdasarkanStatusKreditTertentu.stream().count();
+        Double nasabah = nasabahBerdasarkanStatusKreditTertentu.stream().reduce((x,y)->{
+            Double xSaldo = x.getSaldo();
+            Double ySaldo = y.getSaldo();
+            Double result = xSaldo + ySaldo;
+            saldoNasabahResult.setSaldo(result);
+            return saldoNasabahResult;
+        }).get().getSaldo();
+
+        double result = nasabah/count;
+//        System.out.println(nasabah);
+//        System.out.println(count);
+        view.saldoRataRataSeluruhNasabahSucess(result,"saldo nasabah dengan kategori kredit : " +statusKredit);
+
+        return 0.0;
+    }
 
     @Override
     public Nasabah create(Nasabah nasabah) {
