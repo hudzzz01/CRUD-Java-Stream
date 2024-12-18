@@ -91,6 +91,31 @@ public class NasabahService implements CRUD{
         return  nasabahTertinggi;
     }
 
+    public Nasabah getNasabahTerlama(){
+        Nasabah nasabahTerlama = null;
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setLamaWaktuMenjadiNasabah(0);
+
+        List<Nasabah> passNasabah = items.stream().filter(x -> {
+            if (x.getLamaWaktuMenjadiNasabah() > dumpNasabah.getLamaWaktuMenjadiNasabah()) {
+                dumpNasabah.setLamaWaktuMenjadiNasabah(x.getLamaWaktuMenjadiNasabah());
+                return true;
+            }
+            return false;
+        }).toList();
+
+        if(!passNasabah.isEmpty()){
+
+            nasabahTerlama = passNasabah.get(passNasabah.size()-1);
+        }
+
+        view.nasabahTerlama(nasabahTerlama);
+
+
+
+        return  nasabahTerlama;
+    }
+
     public Nasabah getNasabahSaldoTerendah(){
         Nasabah nasabahDenganSaldoTertinggi = getNasabahSaldoTertinggi();
         Nasabah dumpNasabah = new Nasabah();

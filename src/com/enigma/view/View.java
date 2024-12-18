@@ -28,6 +28,16 @@ public class View {
         System.out.println("\n\n");
     }
 
+    public void nasabahTerlama (Nasabah nasabahTerlama){
+        System.out.println("----------------------------------------");
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("Berhasil mendapatkan data nasabah terlama ്ദി ( ᵔ ᗜ ᵔ )");
+        readOneSuccess(nasabahTerlama);
+        System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
+
     public void umurNasabahTertinggiDanTerendahSucess(Nasabah nasabahTertinggi, Nasabah nasabahTerendah){
         System.out.println("----------------------------------------");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
