@@ -3,6 +3,7 @@ package com.enigma.view;
 import com.enigma.model.Nasabah;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class View {
     public void saldoRataRataSeluruhNasabahSucess(double saldo , String action){
@@ -36,6 +37,13 @@ public class View {
         System.out.println("----------------------------------------");
         System.out.println("----------------------------------------");
         System.out.println("\n\n");
+    }
+
+    public void kastaNasabah(List<Nasabah> tertinggi, List<Nasabah> menengah, List<Nasabah> bawah){
+        System.out.println( "Jumlah nasabah Tinggi : " + tertinggi.stream().count());
+        System.out.println( "Jumlah nasabah Menengah : " + menengah.stream().count());
+        System.out.println( "Jumlah nasabah Bawah : " + bawah.stream().count());
+        System.out.println("Berhasil mendapatkan data Kasta nasabah ്ദി ( ᵔ ᗜ ᵔ )");
     }
 
     public void umurNasabahTertinggiDanTerendahSucess(Nasabah nasabahTertinggi, Nasabah nasabahTerendah){

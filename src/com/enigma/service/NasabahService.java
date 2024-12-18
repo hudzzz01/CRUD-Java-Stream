@@ -65,6 +65,18 @@ public class NasabahService implements CRUD{
         return  nasabahTertinggi;
     }
 
+    public void jumlahNasabahBerdasarkanKategoriSaldo(){
+        List<Nasabah> terendah = myFilterSaldoKurangDari(1000000.0);
+        List<Nasabah> menengah = myFilterSaldoRangeDari(1000000.0,10000000.0);
+        List<Nasabah> tertinggi = myFilterSaldoNasabahLebihBesarDari(10000000.00);
+
+//        System.out.println(terendah);
+//        System.out.println(menengah);
+//        System.out.println(tertinggi);
+
+        view.kastaNasabah(tertinggi,menengah,terendah);
+    }
+
 
     public Nasabah getNasabahUmurTertinggi(){
         Nasabah nasabahTertinggi = null;
@@ -90,6 +102,57 @@ public class NasabahService implements CRUD{
 
         return  nasabahTertinggi;
     }
+
+    ArrayList<Nasabah> jumlahNasabahSaldoRendah(){
+
+
+        return null;
+    }
+
+    List<Nasabah> myFilterSaldoNasabahLebihBesarDari(Double targetSaldo)
+    {
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setSaldo(targetSaldo);
+
+        return items.stream().filter(x -> {
+            if (x.getSaldo() > dumpNasabah.getSaldo()) {
+                return true;
+            }
+            return false;
+        }).toList();
+
+    }
+
+    List<Nasabah> myFilterSaldoKurangDari(Double targetSaldo)
+    {
+        Nasabah dumpNasabah = new Nasabah();
+        dumpNasabah.setSaldo(targetSaldo);
+
+        return items.stream().filter(x -> {
+            if (x.getSaldo() < dumpNasabah.getSaldo()) {
+                return true;
+            }
+            return false;
+        }).toList();
+
+    }
+
+    List<Nasabah> myFilterSaldoRangeDari(Double targetSaldoRendah,Double targetSaldoTinggi)
+    {
+        Nasabah dumpNasabahRendah = new Nasabah();
+        dumpNasabahRendah.setSaldo(targetSaldoRendah);
+        Nasabah dumpNasabahTinggi = new Nasabah();
+        dumpNasabahTinggi.setSaldo(targetSaldoTinggi);
+
+        return items.stream().filter(x -> {
+            if (x.getSaldo() > dumpNasabahRendah.getSaldo() && x.getSaldo() < dumpNasabahTinggi.getSaldo()) {
+                return true;
+            }
+            return false;
+        }).toList();
+
+    }
+
 
     public Nasabah getNasabahTerlama(){
         Nasabah nasabahTerlama = null;
