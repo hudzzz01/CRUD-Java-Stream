@@ -36,6 +36,10 @@ public class Main {
         service.getSaldoTerendah();
         service.temukanBeberapaNasabahSaldoTertinggi();
 
+        service.nasabahTertua();
+        service.nasabahTermuda();
+
+
 
 
     }

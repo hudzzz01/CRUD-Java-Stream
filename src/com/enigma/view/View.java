@@ -49,6 +49,27 @@ public class View {
         System.out.println("\n\n");
     }
 
+    public void umurNasabahTerendahSucess(Nasabah nasabahTerendah){
+        System.out.println("----------------------------------------");
+        System.out.println("Saldo terendah : " + nasabahTerendah.getUmur());
+        System.out.println("pemilik  \t : " + nasabahTerendah.getNama());
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("Berhasil mendapatkan umur termuda ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
+
+    public void umurNasabahTertinggiSucess(Nasabah nasabahTertinggi){
+        System.out.println("----------------------------------------");
+        System.out.println("Saldo terendah : " +nasabahTertinggi.getUmur());
+        System.out.println("pemilik  \t : " + nasabahTertinggi.getNama());
+        System.out.println("++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("Berhasil mendapatkan Umur termuda ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
+
+
     public void nasabahTerlama (Nasabah nasabahTerlama){
         System.out.println("----------------------------------------");
         System.out.println("++++++++++++++++++++++++++++++++++++++++");
