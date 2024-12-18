@@ -29,6 +29,9 @@ public class Main {
         service.temukanBeberapaNasabahSaldoTertinggi();
         service.temukanBeberapaNasabahUsiaTertinggi();
 
+        service.getSaldoTertinggi();
+        service.getSaldoTerendah();
+
 
 
     }

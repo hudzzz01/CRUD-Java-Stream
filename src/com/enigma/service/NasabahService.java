@@ -257,6 +257,16 @@ public class NasabahService implements CRUD{
 
     }
 
+    public void getSaldoTerendah(){
+        Nasabah terendah = getNasabahSaldoTerendah();
+        view.saldoNasabahTerendahSucess(terendah);
+    }
+
+    public void getSaldoTertinggi(){
+        Nasabah tertinggi = getNasabahSaldoTertinggi();
+        view.saldoNasabahTerendahSucess(tertinggi);
+    }
+
 
     public void getNasabahSaldoTertinggiDanTerendah(){
         Nasabah tertinggi = getNasabahSaldoTertinggi();
