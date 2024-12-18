@@ -12,6 +12,18 @@ public class Nasabah {
     public Nasabah() {
     }
 
+    @Override
+    public String toString() {
+        return "Nasabah{" +
+                "id=" + id +
+                ", nama='" + nama + '\'' +
+                ", umur=" + umur +
+                ", saldo=" + saldo +
+                ", statusKredit='" + statusKredit + '\'' +
+                ", lamaWaktuMenjadiNasabah=" + lamaWaktuMenjadiNasabah +
+                '}';
+    }
+
     public Nasabah(Integer id, String nama, Integer umur, Double saldo, String statusKredit, Integer lamaWaktuMenjadiNasabah) {
         this.id = id;
         this.nama = nama;

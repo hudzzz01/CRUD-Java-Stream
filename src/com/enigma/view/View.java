@@ -5,6 +5,14 @@ import com.enigma.model.Nasabah;
 import java.util.ArrayList;
 
 public class View {
+    public void saldoRataRataSeluruhNasabahSucess(double saldo){
+        System.out.println("----------------------------------------");
+        System.out.println("rata-rata saldonya adalah : " + saldo);
+        System.out.println("----------------------------------------");
+        System.out.println("Berhasil menghitung rata-rata saldo  ദ്ദി ( ᵔ ᗜ ᵔ )");
+        System.out.println("----------------------------------------");
+        System.out.println("\n\n");
+    }
     public void createSucess(Nasabah nasabah){
         readOneSuccess(nasabah);
         System.out.println("----------------------------------------");

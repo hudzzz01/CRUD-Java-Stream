@@ -39,6 +39,23 @@ public class NasabahService implements CRUD{
         return  index;
     }
 
+    public double rataRataSaldoNasabah(){
+
+
+        long count = items.stream().count();
+        Double nasabah = items.stream().reduce((x,y)->{
+            Double xSaldo = x.getSaldo();
+            Double ySaldo = y.getSaldo();
+            Double result = xSaldo + ySaldo;
+            y.setSaldo(result);
+            return y;
+        }).get().getSaldo();
+
+        double result = nasabah/count;
+        view.saldoRataRataSeluruhNasabahSucess(result);
+
+        return result ;
+    };
 
     @Override
     public Nasabah create(Nasabah nasabah) {
