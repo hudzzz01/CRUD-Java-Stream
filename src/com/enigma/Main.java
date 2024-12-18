@@ -62,6 +62,8 @@ public class Main {
                     service.delete(id);
                 } else if (input.equals(5)) {
                     view.readById(service);
+                } else if (input.equals(6)) {
+                    service.rataRataSaldoNasabah();
                 }
 
             }

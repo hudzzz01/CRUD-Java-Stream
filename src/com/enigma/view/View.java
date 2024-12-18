@@ -230,7 +230,7 @@ public class View {
         System.out.println("3. Update Nasabah");
         System.out.println("4. Delete Nasabah");
         System.out.println("5. Read Nasabah by ID ");
-        System.out.println("6.  Hitung rata-rata saldo tabungan dari semua nasabah ");
+        System.out.println("6. Hitung rata-rata saldo tabungan dari semua nasabah ");
 
         System.out.println("99. keluar");
         System.out.println("-------------------------------------");

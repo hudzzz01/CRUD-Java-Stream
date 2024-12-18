@@ -290,10 +290,25 @@ public class NasabahService implements CRUD{
         view.umurNasabahTertinggiSucess(tertinggi);
     }
 
+    void isEmpty() throws Exception {
+        if(items.isEmpty()) throw new Exception("Data nasabah kosong");
+    }
+
     public double rataRataSaldoNasabah(){
         Nasabah nasabahResult = new Nasabah();
+        Boolean flag = false;
+        try {
+            isEmpty();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            flag = true;
+        }
+
+        if(flag) return 0.0;
+
 
         long count = items.stream().count();
+
         Double nasabah = items.stream().reduce((x,y)->{
             Double xSaldo = x.getSaldo();
             Double ySaldo = y.getSaldo();
