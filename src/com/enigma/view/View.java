@@ -231,6 +231,16 @@ public class View {
         System.out.println("4. Delete Nasabah");
         System.out.println("5. Read Nasabah by ID ");
         System.out.println("6. Hitung rata-rata saldo tabungan dari semua nasabah ");
+        System.out.println("7. Cari rata-rata saldo tabungan nasabah berdasarkan status kredit (Example : \"baik\",\"Buruk\",\"Netral\") ");
+        System.out.println("8. Mencari nasabah dengan saldo tertinggi ");
+        System.out.println("9. Mencari nasabah dengan saldo terendah ");
+        System.out.println("10. Mencari nasabah dengan saldo tertinggi maupun terendah ");
+        System.out.println("11. Mencari nasabah dengan umur tertua ");
+        System.out.println("12. Mencari nasabah dengan umur termuda ");
+        System.out.println("13. Mencari nasabah dengan umur tertua maupun termuda ");
+        System.out.println("14. Tampilkan Jumlah nasabah berdasarkan kasta ");
+        System.out.println("15. Temukan daftar 5 nasabah dengan saldo tabungan tertinggi. ");
+        System.out.println("16. Tampilkan daftar nama nasabah yang berusia di atas 50 tahun. ");
 
         System.out.println("99. keluar");
         System.out.println("-------------------------------------");
@@ -244,6 +254,10 @@ public class View {
         }
 
 
+    }
+
+    public String rataRataBerdasarkanStatusKredit(){
+        return inputHandler.getString("Masukan status kredit : ");
     }
 
     public Nasabah createData(){
