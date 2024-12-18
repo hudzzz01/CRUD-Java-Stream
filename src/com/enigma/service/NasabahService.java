@@ -82,7 +82,7 @@ public class NasabahService implements CRUD{
 
         Double saldoTertinggi = getNasabahSaldoTertinggi().getSaldo();
 
-        List<Nasabah> daftarNasabahDenganSaldoTertinggi = items.stream().filter(x-> x.getSaldo().equals(saldoTertinggi)).toList();
+        List<Nasabah> daftarNasabahDenganSaldoTertinggi = items.stream().filter(x-> x.getSaldo().equals(saldoTertinggi)).limit(5).toList();
 
         view.listNasabahSaldoTertinggiSucess(daftarNasabahDenganSaldoTertinggi);
 

@@ -14,6 +14,10 @@ public class Main {
         service.create(new Nasabah(6,"hudzaifah",24,200000.01,"baik",5));
         service.create(new Nasabah(7,"roger",23,22000000.01,"buruk",45));
         service.create(new Nasabah(8,"Ling",30,22000000.01,"buruk",45));
+        service.create(new Nasabah(9,"Nana",30,22000000.01,"buruk",45));
+        service.create(new Nasabah(10,"Beneta",30,22000000.01,"buruk",45));
+        service.create(new Nasabah(11,"Hilos",30,22000000.01,"buruk",45));
+        service.create(new Nasabah(12,"Estes",30,22000000.01,"buruk",45));
 //        service.read();
 //        service.update(1,new Nasabah(1,"hudzaifah2",24,200000000.01,"baik",5));
 //        service.read();
@@ -26,11 +30,11 @@ public class Main {
         service.getNasabahUmurTertinggiDanTerendah();
         service.getNasabahTerlama();
         service.jumlahNasabahBerdasarkanKategoriSaldo();
-        service.temukanBeberapaNasabahSaldoTertinggi();
         service.temukanBeberapaNasabahUsiaTertinggi();
 
         service.getSaldoTertinggi();
         service.getSaldoTerendah();
+        service.temukanBeberapaNasabahSaldoTertinggi();
 
 
 
