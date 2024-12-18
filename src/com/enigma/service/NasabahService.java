@@ -24,7 +24,7 @@ public class NasabahService implements CRUD{
 //        if (!isPhoneNumberAvaible) throw new Exception("phone number tidak dapat digunakan");
 //    }
 
-    Nasabah getNasabahById(Integer id) throws Exception {
+    public Nasabah getNasabahById(Integer id) throws Exception {
         List<Nasabah> nasabah = items.stream().filter(n -> n.getId() == id).toList();
         if(nasabah.isEmpty()){
             throw new Exception("data tidak ditemukan");

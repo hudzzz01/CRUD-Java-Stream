@@ -1,11 +1,16 @@
 package com.enigma.view;
 
 import com.enigma.model.Nasabah;
+import com.enigma.service.InputHandler;
+import com.enigma.service.NasabahService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class View {
+    private InputHandler inputHandler = new InputHandler(new Scanner(System.in));
+
     public void saldoRataRataSeluruhNasabahSucess(double saldo , String action){
         System.out.println("----------------------------------------");
         System.out.println("rata-rata saldonya adalah : " + saldo);
@@ -214,4 +219,137 @@ public class View {
         System.out.println("---------------------------");
         System.out.println();
     }
+
+    public Integer menu(NasabahService service){
+
+        System.out.println("----------- Selamat Datang di program Crud Nasabah by Hudzaifah");
+//        service.read();
+        System.out.println("silakah pilih menu yang anda inginkan");
+        System.out.println("1. Create Nasabah");
+        System.out.println("2. Read Nasabah");
+        System.out.println("3. Update Nasabah");
+        System.out.println("4. Delete Nasabah");
+        System.out.println("5. Read Nasabah by ID ");
+        System.out.println("6.  Hitung rata-rata saldo tabungan dari semua nasabah ");
+
+        System.out.println("99. keluar");
+        System.out.println("-------------------------------------");
+
+        try{
+            Integer id = inputMenu("Masukan pilihan kamu : ");
+            return id;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return 0;
+        }
+
+
+    }
+
+    public Nasabah createData(){
+        Nasabah nasabah = new Nasabah();
+        try{
+            Integer id = inputMenu("Masukan id nasabah baru : ");
+            nasabah.setId(id);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+
+        String fullNmae = inputHandler.getString("Masukan Nama :");
+        nasabah.setNama(fullNmae);
+
+        Integer age = inputHandler.getInt("Masukan Usia :");
+        nasabah.setUmur(age);
+        Double saldo = inputHandler.getDouble("Masukan saldo nasabah :");
+        nasabah.setSaldo(saldo);
+        String statusKredit = inputHandler.getString("Masukan status kredit :");
+        nasabah.setStatusKredit(statusKredit);
+
+        Integer lamaMenjadiNasabah = inputHandler.getInt("Lama menjadi nasabah :");
+        nasabah.setLamaWaktuMenjadiNasabah(lamaMenjadiNasabah);
+
+
+
+
+
+        return nasabah;
+    }
+
+    public Nasabah updateData(NasabahService service) throws Exception {
+
+        Nasabah nasabah = new Nasabah();
+        Integer id = null;
+        id = inputMenu("Masukan id nasabah yang ingin di ubah : ");
+        Nasabah nasabahLama = service.getNasabahById(id);
+        try{
+            nasabahLama.getId();
+        }catch (Exception e){
+            throw new Exception("");
+        }
+        nasabah.setId(id);
+
+
+
+
+
+        String fullNmae = inputHandler.getString("Masukan Nama baru :");
+        nasabah.setNama(fullNmae);
+
+        Integer age = inputHandler.getInt("Masukan Usia baru :");
+        nasabah.setUmur(age);
+        Double saldo = inputHandler.getDouble("Masukan saldo nasabah baru :");
+        nasabah.setSaldo(saldo);
+        String statusKredit = inputHandler.getString("Masukan status kredit baru :");
+        nasabah.setStatusKredit(statusKredit);
+
+        Integer lamaMenjadiNasabah = inputHandler.getInt("Lama menjadi nasabah yang baru :");
+        nasabah.setLamaWaktuMenjadiNasabah(lamaMenjadiNasabah);
+
+        return nasabah;
+    }
+
+    public Integer delete(NasabahService service){
+        Integer id = inputHandler.getInt("Masukan id nasabah yang ingin kamu hapus : ");
+        return id;
+
+    }
+
+    public void readById(NasabahService service) {
+//        Nasabah nasabahLama = service.getById(id);
+//        try{
+//            nasabahLama.getId();
+//        }catch (Exception e){
+//            throw new Exception("Id tidak ditemukan");
+//        }
+//
+//        System.out.println("isi data nasabah kamu sekarang adalah : ");
+        Integer id = inputMenu("Masukan id yang ingin di cari : ");
+        Nasabah nasabah = new Nasabah();
+        try {
+            nasabah = service.getNasabahById(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        if(nasabah.getId() != null){
+            readOneSuccess(nasabah);
+        }else {
+            readFail();
+        }
+    }
+
+
+
+
+
+
+    Integer inputMenu(String prompt){
+        Integer pilihan = inputHandler.getInt(prompt);
+        if(pilihan < 1) throw new IllegalArgumentException("input tidak boleh kurang dari 1");
+        return pilihan;
+    }
+
+
+
 }
