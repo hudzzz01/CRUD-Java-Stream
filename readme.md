@@ -1,4 +1,4 @@
-             # 🔖 Program CRUD Nasabah Dengan Stream()
+# 🔖 Program CRUD Nasabah Dengan Stream()
 
 ~~ Muhamad Hudzaifah Assyahid. ~~ ✨
 - requerement :
@@ -24,6 +24,6 @@ ___
 
 # Lampiran :
 - Screenshoot program :
-![Screen Shoot](https://github.com/hudzzz01/CRUD-Java-Stream/blob/main/cuplikan.png?raw=true)
+![Screen Shoot](https://github.com/hudzzz01/CRUD-Java-Stream/blob/master/cuplikan.png?raw=true)
 
 
