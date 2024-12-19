@@ -23,6 +23,7 @@ ___
 ---
 
 # Lampiran :
-
+- Screenshoot program :
+- ![Screen Shoot](https://github.com/hudzzz01/CRUD-Java-Stream/blob/main/cuplikan.png?raw=true)
 
 
